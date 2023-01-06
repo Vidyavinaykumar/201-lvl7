@@ -75,13 +75,13 @@ describe("Test case for database", () => {
     const response = await agent.post("/todos").send({
       title: "Buy xbox",
       dueDate: new Date().toISOString(),
-      completed: false,
-    });
+       completed: false,
+     });
     const parsedResponse = JSON.parse(response.text);
     const todoID = parsedResponse.id;
 
     const res = await agent.delete(`/todos/${todoID}`).send();
     const bool = Boolean(res.text);
     expect(bool).toBe(true);
-  });
+   });
 });
